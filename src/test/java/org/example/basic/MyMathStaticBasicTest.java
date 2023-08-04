@@ -1,5 +1,8 @@
 package org.example.basic;
 
+import org.example.basic.statics.MyMathBasic;
+import org.example.basic.statics.MyMathStaticBasic;
+import org.example.basic.statics.MyStaticTestClass;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -54,4 +57,18 @@ class MyMathStaticBasicTest {
         System.out.println("인스턴스 변수 출력 = " + mathBasic.description);
     }
 
+    @Test
+    @DisplayName("클래스멤버(static)와 인스턴스멤버 간의 참조와 호출")
+    public void callStaticMethod() {
+        // 인스턴스가 존재하는 시점에 static 은 항상 존재하지만, static 이 존재하는 시점에 인스턴스가 존재하지 않을 수도 있다.
+
+        // 인스턴스 메소드 호출
+        System.out.println("인스턴스 메소드 호출 : 객체 생성 후 호출");
+        MyStaticTestClass testClass = new MyStaticTestClass();
+        testClass.callMethod();
+
+        // static 메소드 호출
+        System.out.println("static 메소드 호출 : 객체 생성없이 바로 참조가능");
+        MyStaticTestClass.callMethod2();
+    }
 }
