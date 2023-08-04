@@ -2,6 +2,20 @@ package org.example.basic.statics;
 
 public class MyStaticTestClass {
 
+    /** 인스턴스 변수 */
+    public String instanceVal = "인스턴스 변수";
+
+    /** static 변수 */
+    public static String staticVal = "static 변수";
+
+    // 인스턴스 변수는 static 변수를 참조할 수 있다.
+    public String newInstanceVal = staticVal; // OK
+
+    // 인스턴스 변수를 사용하기 위해서는 인스턴스를 생성햐야 한다.
+//  public static String staticVal2 = instanceVal; // NG
+    public static String newStaticVal = new MyStaticTestClass().instanceVal; // OK
+
+
     /** 인스턴스 메소드 */
     public void instanceMethod() {
         System.out.println("MyStaticTestClass.instanceMethod() 실행");
@@ -33,7 +47,7 @@ public class MyStaticTestClass {
      *  만약 그런 경우가 발생하면, 인스턴스멤버로 해야할 것을 클래스멤버(static)으로 하지 않았나 검토해야한다.
      */
     public static void callMethod2() {
-//        instanceMethod(); // NG , 같은 클래스의 static 메소드에서 인스턴스 메소드를 호출할 수 없다.
+//      instanceMethod(); // NG , 같은 클래스의 static 메소드에서 인스턴스 메소드를 호출할 수 없다.
         // 호출하기 위해서는 인스턴스를 생성해야 한다.
         MyStaticTestClass myStaticTestClass = new MyStaticTestClass();
         myStaticTestClass.instanceMethod();
