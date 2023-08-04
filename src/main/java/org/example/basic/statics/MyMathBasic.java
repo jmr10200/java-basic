@@ -1,11 +1,11 @@
-package org.example.basic;
+package org.example.basic.statics;
 
 public class MyMathBasic {
 
-    long a;
-    long b;
+    public long a;
+    public long b;
 
-    String description = "인스턴스 변수";
+    public String description = "인스턴스 변수";
 
     /**
      * 인스턴스 변수 a, b 만 이용하므로 매개변수가 필요없다.
